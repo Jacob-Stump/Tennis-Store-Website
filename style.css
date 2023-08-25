@@ -1,32 +1,84 @@
 
 
 body {
+    @import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;600;700&display=swap');
+
     margin: 0;
     background: #222;
-    font-family: 'Work Sans', sans-serif;
+    font-family: "Spline Sans", sans-serif;
     font-weight: 300;
 }
 
-.nav-bar {
-    width: 80%;
-    margin: 0 auto;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 header {
-    background: #55d6aa;
+    background: #222;
 
 }
 
-header::after {
-    content: '';
-    display: table;
-    clear: both;
-}
 
-nav {
-    text-align:center;
+
+
+
+.cart-button
+{
+    size: 500px;
+    float: right;
+    position:right;
+    
     
 }
+
+
+a:hover {
+    background-color: #3aaa5c;
+  }
+
+
+
+
+
+
+  .nav-links ul {
+    
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: inline;
+    text-align: center;
+  }
+  
+  
+  
+  li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+
+
+
+
+
+
+
 
 .card {
     box-shadow:0 4px 8px 0 rbga(0, 0, 0, 0.2);
