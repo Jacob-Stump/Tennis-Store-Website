@@ -1,5 +1,4 @@
 
-
 body {
     @import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;600;700&display=swap');
 
@@ -9,31 +8,12 @@ body {
     font-weight: 300;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 header {
     background: #222;
 
 }
 
-
-
-
-
-.cart-button
-{
+.cart-button {
     size: 500px;
     float: right;
     position:right;
@@ -41,18 +21,11 @@ header {
     
 }
 
-
 a:hover {
     background-color: #3aaa5c;
-  }
+}
 
-
-
-
-
-
-  .nav-links ul {
-    
+.nv-links ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -60,46 +33,41 @@ a:hover {
     background-color: #333;
     display: inline;
     text-align: center;
-  }
+}
   
-  
-  
-  li a{
+li a {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-  }
+}
 
-
-
-
-
-
-
-
-
-.card {
+div.card {
     box-shadow:0 4px 8px 0 rbga(0, 0, 0, 0.2);
     max-width: 300px;
     margin:auto;
     text-align: center;
     font-family: arial;
+    height: auto;
+    
+    
 }
 
 .price {
-    color:grey;
-    font-size: 22px
+    color:black;
+    font-size: 20px
 }
 
-.card button {
+
+.add-to-cart-btn { /*adding some attributes to the add to cart button*/
     border: none;
     outline: 0;
     padding: 12px;
     color: white;
-    background-color: #000;
+    background-color:#3aaa5c;
     cursor: pointer;
     width: 100%;
     font-size: 18px;
+
 }

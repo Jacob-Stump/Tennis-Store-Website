@@ -2,15 +2,11 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop</title>
-
-    
-
 </head>
-
-
 <header>
     <div class="nav-bar"> <!--container to hold navbar-->
 
@@ -27,21 +23,47 @@
         </nav>
     </div>
 </header>
-
-
-<body>
-    
-    
-    
-
-    <div class="product-window">
-        <div class="card">
-            <img src="https://m.media-amazon.com/images/I/71bZ4xSwn7L._AC_SL1500_.jpg" alt="Babolat Racquet" style="width:100%">
-            <h1>Babolat Racquets</h1>
-            <p class="price">$199.99</p>
-            <p>Nice fucking racquet right here, mate good on ya</p>
-            <p><button>Add to Cart</button></p>
+<body>   
+    <div class="container"> <!--utilizing bootstraps responsive class to create dynamic card containers-->
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://m.media-amazon.com/images/I/71bZ4xSwn7L._AC_SL1500_.jpg" alt="Babolat Racquet" style="width:100%">
+                    <div class="card-body">
+                        <h5 class="product-1">Babolat Pure Drive</h5>
+                        <p class="card-text">Buy this racquet to win multiple slam titles!</p>
+                        <p class="price">$199.99</p>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://m.media-amazon.com/images/I/71bZ4xSwn7L._AC_SL1500_.jpg" alt="Babolat Racquet" style="width:100%">
+                    <div class="card-body">
+                        <h5 class="card-title">Babolat Pure Drive</h5>
+                        <p class="card-text">Buy this racquet to win multiple slam titles!</p>
+                        <p class="price">$199.99</p>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://m.media-amazon.com/images/I/71bZ4xSwn7L._AC_SL1500_.jpg" alt="Babolat Racquet" style="width:100%">
+                    <div class="card-body">
+                        <h5 class="card-title">Babolat Pure Drive</h5>
+                        <p class="card-text">Buy this racquet to win multiple slam titles!</p>
+                        <p class="price">$199.99</p>
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more cards with col-lg-4 and col-md-6 classes as needed -->
         </div>
     </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
