@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;600;700&display=swap');
+
+
+*{
+  font-family: "Spline Sans", sans-serif;
+}
+
+
 
   body {
-    @import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;600;700&display=swap');
-
     margin: 0;
     background: #222;
-    font-family: "Spline Sans", sans-serif;
     font-weight: 300;
   }
 
@@ -61,8 +66,9 @@
 }
   
   li {
+    display: block;
     float: left;
-    block-size: 50px;
+    block-size: 45px;
   }
   
   li a {
