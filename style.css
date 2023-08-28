@@ -1,47 +1,93 @@
 
-body {
+  body {
     @import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;600;700&display=swap');
 
     margin: 0;
     background: #222;
     font-family: "Spline Sans", sans-serif;
     font-weight: 300;
-}
+  }
 
-header {
+  header {
     background: #222;
 
-}
+   }
 
-.cart-button {
-    size: 500px;
+  a:hover {
+    background-color: #3aaa5c;
+  }
+
+
+
+
+/*                 NavBar                 */
+
+  header {
+    background: #222;
+
+  }
+
+  .cart-button
+  {
     float: right;
     position:right;
+    display: block;
+    width: 7%;
+    border: none;
+    background-color: #04AA6D;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
     
-    
-}
+  }
+  .cart-button:hover{
+    background-color: #52f182;
+  }
 
-a:hover {
+  a:hover {
     background-color: #3aaa5c;
-}
+  }
 
-.nv-links ul {
+
+  ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
-    display: inline;
     text-align: center;
+    
 }
   
-li a {
+  li {
+    float: left;
+    block-size: 50px;
+  }
+  
+  li a {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-}
+  }
+  
+  .nav-link{
+    float: center;
+  }
+  
+  .nav-item:active{
+    color:#3aaa5c
+  }
+
+
+
+
+
+
+/*                 Shop                 */
+
 
 div.card {
     box-shadow:0 4px 8px 0 rbga(0, 0, 0, 0.2);
@@ -52,11 +98,14 @@ div.card {
     height: auto;
     
     
+    height: auto;
+    
+    
 }
 
 .price {
     color:black;
-    font-size: 20px
+    font-size: 20px;
 }
 
 
@@ -65,6 +114,7 @@ div.card {
     outline: 0;
     padding: 12px;
     color: white;
+    background-color:#3aaa5c;
     background-color:#3aaa5c;
     cursor: pointer;
     width: 100%;
