@@ -102,11 +102,10 @@ div.card {
     text-align: center;
     font-family: arial;
     height: auto;
-    
-    
-    height: auto;
-    
-    
+}
+
+.card-img-top {
+  height: 300px;
 }
 
 .price {
