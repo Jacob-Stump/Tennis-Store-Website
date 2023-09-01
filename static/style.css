@@ -132,6 +132,10 @@ div.card {
     
 }
 
+.card-img-top {
+  height: 300px;
+}
+
 
 .price {
     color:black;
