@@ -3,7 +3,7 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	_ "io/ioutil"
+	"io/ioutil"
 	"log"
 	"net/http"
 
