@@ -3,13 +3,14 @@
 
 *{
   font-family: "Spline Sans", sans-serif;
+  margin: 0;
 }
 
 
 
   body {
-    margin: 0;
-    background: #222;
+    
+    background-color: #E3E7E8;
     font-weight: 300;
   }
 
@@ -25,11 +26,15 @@
 
 
 
-/*                 NavBar                 */
+/*!                NavBar                 */
 
   header {
     background: #222;
 
+  }
+  .ri-shopping-cart-line
+  {
+    color: white;
   }
 
   .cart-button
@@ -44,11 +49,33 @@
     cursor: pointer;
     text-align: center;
     
+    
   }
   .cart-button:hover{
     background-color: #52f182;
   }
 
+<<<<<<< Updated upstream
+  .cart-quantity
+  {
+    float: right;
+    color: white;
+    padding: 1px 5px;
+    font-size: 20px;
+    border-radius: 8px;
+    background-color: rgb(219, 53, 53);
+    position: absolute;
+    top: 0px;
+    right: 145px;
+    
+
+  }
+  .cart{
+    position: relative;
+  }
+
+=======
+>>>>>>> Stashed changes
   a:hover {
     background-color: #3aaa5c;
   }
@@ -90,8 +117,7 @@
 
 
 
-
-/*                 Shop                 */
+/*!                 Shop                 */
 
 
 div.card {
@@ -101,11 +127,17 @@ div.card {
     text-align: center;
     font-family: arial;
     height: auto;
+    border: solid 2px rgb(20, 20, 20);
+    
+    height: auto;
+    
+    
 }
 
 .card-img-top {
   height: 300px;
 }
+
 
 .price {
     color:black;
