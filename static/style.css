@@ -35,7 +35,6 @@
   .cart-button
   {
     float: right;
-    position:right;
     display: block;
     width: 7%;
     border: none;
@@ -50,6 +49,26 @@
     background-color: #52f182;
   }
 
+<<<<<<< Updated upstream
+=======
+  .cart-quantity
+  {
+    position: absolute;
+    color: white;
+    padding: 1px 5px;
+    font-size: 20px;
+    border-radius: 50%;
+    background-color: rgb(219, 53, 53);
+    top: 0;
+    right: 0;
+    
+
+  }
+  .cart{
+    position: relative;
+  }
+
+>>>>>>> Stashed changes
   a:hover {
     background-color: #3aaa5c;
   }

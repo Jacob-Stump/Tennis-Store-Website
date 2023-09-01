@@ -3,12 +3,13 @@ let shopItemsData = [];
 let generateCard = () => { 
     const shop = document.getElementById('shop');
     return (shop.innerHTML = shopItemsData.map((x)=>{
-        let {id, name, price, descr, img} = x; 
+        let {product_id, product_name, price, descr, imgurl} = x; 
+        console.log(imgurl)
         return `
-        <div id =product-id-${id} class="card"> 
-            <img class="card-img-top" src=${img} >
+        <div id =product-id-${product_id} class="card"> 
+            <img class="card-img-top" src="${imgurl}" alt="Product Image" >
             <div class="card-body">
-                <h5 class="card-title">${name}</h5>
+                <h5 class="card-title">${product_name}</h5>
                 <p class="card-text">${descr}</p>
                 <p class="price">${price}</p>
                 <button class="add-to-cart-btn">Add to Cart</button>
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json()) //creates json string from endpoint json
         .then(jsonData => { //at this point json is in an object array
         shopItemsData = jsonData; //copy jsonData array to shopItemsData array
+        console.log(shopItemsData);
         generateCard(shopItemsData); //call generateCard with shopItemsData
     })
     .catch(error => console.error('Error fetching products:', error)); //fetch always has catch 
