@@ -76,6 +76,7 @@ func handleRequest(corsMiddleware func(http.Handler) http.Handler) { //utilizing
 
 func main() {
 	//db, err := sql.Open("mysql", "root:Frodobaggins123@tcp(localhost:3306)/golang")
+	http.Handle("/", http.FileServer(http.Dir("static")))
 
 	corsMiddleware := handlers.CORS(
 		handlers.AllowedOrigins([]string{"*"}),
