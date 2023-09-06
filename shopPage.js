@@ -20,7 +20,7 @@ let generateCard = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('http://localhost:8080/product') 
+    fetch('http://localhost:8080/getProducts') 
         .then(response => response.json()) //creates json string from endpoint json
         .then(jsonData => { //at this point json is in an object array
         shopItemsData = jsonData; //copy jsonData array to shopItemsData array
@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(error => console.error('Error fetching products:', error)); //fetch always has catch 
 
 });
-
 
 
 /*let shopItemsData = [

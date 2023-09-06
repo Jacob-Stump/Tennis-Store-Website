@@ -12,11 +12,11 @@ import (
 )
 
 type Product struct { //creating JSON object structure for DB retrieval
-	ID    int     `json:"product_id"`
-	Name  string  `json:"product_name"`
-	Desc  string  `json:"descr"`
-	Price float32 `json:"price"`
-	Img   string  `json:"imgurl"`
+	ID    int    `json:"product_id"`
+	Name  string `json:"product_name"`
+	Desc  string `json:"descr"`
+	Price string `json:"price"` //fixed float32 -> float 64 as the shop was displaying 3.5 instead of 3.50
+	Img   string `json:"imgurl"`
 }
 
 type Customer struct { //need to restructure customer table/ break address into a seperate table
@@ -25,6 +25,16 @@ type Customer struct { //need to restructure customer table/ break address into 
 	LastName  string `json:"last_name"`
 	Email     string `json:"email"`
 	Phone     int    `json:"phone"`
+}
+
+type AdminLoginRequest struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
+type AdminLoginResponse struct {
+	Success bool   `json:"success"`
+	Error   string `json:"error,omitempty"`
 }
 
 func getProducts(w http.ResponseWriter, r *http.Request) { //func to take in product info from DB and JSONify
@@ -59,24 +69,77 @@ func getProducts(w http.ResponseWriter, r *http.Request) { //func to take in pro
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
+
 		products = append(products, p)
+
 	}
 	//returning the product information as JSON
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(products)
 }
 
+func writeJSONErrorResponse(w http.ResponseWriter, statusCode int, errMessage string) { //method to reduce code repetition when returning a JSON formatted error response
+	response := AdminLoginResponse{Success: false, Error: errMessage}
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(statusCode)
+	json.NewEncoder(w).Encode(response)
+}
+
+func adminLogin(w http.ResponseWriter, r *http.Request) { //on admin login request, verifies username and associated password are correct
+	var request AdminLoginRequest
+
+	err := json.NewDecoder(r.Body).Decode(&request)
+
+	if err != nil {
+		writeJSONErrorResponse(w, http.StatusBadRequest, "invalid request")
+		return
+	}
+
+	cfg := mysql.Config{
+		User:   "root",
+		Passwd: "Frodobaggins123",
+		Net:    "tcp",
+		Addr:   "localhost:3306",
+		DBName: "golang",
+	}
+
+	db, err := sql.Open("mysql", cfg.FormatDSN())
+
+	if err != nil {
+		writeJSONErrorResponse(w, http.StatusInternalServerError, "db connection error")
+		return
+	}
+
+	defer db.Close()
+
+	var storedPassword string
+
+	err = db.QueryRow("SELECT password FROM admins WHERE username = ?", request.Username).Scan(&storedPassword)
+	if err != nil {
+		writeJSONErrorResponse(w, http.StatusUnauthorized, "invalid admin credentials")
+		return
+	}
+
+	if storedPassword == request.Password {
+		response := AdminLoginResponse{Success: true}
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(response)
+	} else {
+		writeJSONErrorResponse(w, http.StatusUnauthorized, "invalid password")
+		return
+	}
+}
 func handleRequest(corsMiddleware func(http.Handler) http.Handler) { //utilizing mux for handling multiple requests
 
-	myRouter := mux.NewRouter().StrictSlash(true)
+	myRouter := mux.NewRouter().StrictSlash(true) //creating a new router instance to handle http requests, strict slash allows for /path/ and /path to be differentiated
 	myRouter.Use(corsMiddleware)
-	myRouter.HandleFunc("/product", getProducts)
+	myRouter.HandleFunc("/getProducts", getProducts)
+	myRouter.HandleFunc("/adminLogin", adminLogin)
 	log.Fatal(http.ListenAndServe(":8080", myRouter))
 }
 
 func main() {
 	//db, err := sql.Open("mysql", "root:Frodobaggins123@tcp(localhost:3306)/golang")
-	http.Handle("/", http.FileServer(http.Dir("static")))
 
 	corsMiddleware := handlers.CORS(
 		handlers.AllowedOrigins([]string{"*"}),
@@ -85,5 +148,4 @@ func main() {
 	)
 
 	handleRequest(corsMiddleware)
-
 }
