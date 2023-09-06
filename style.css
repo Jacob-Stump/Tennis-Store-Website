@@ -40,6 +40,7 @@
   .cart-button
   {
     float: right;
+    position:right;
     display: block;
     width: 7%;
     border: none;
@@ -55,7 +56,6 @@
     background-color: #52f182;
   }
 
-<<<<<<< Updated upstream
   .cart-quantity
   {
     float: right;
@@ -74,8 +74,6 @@
     position: relative;
   }
 
-=======
->>>>>>> Stashed changes
   a:hover {
     background-color: #3aaa5c;
   }
@@ -157,3 +155,4 @@ div.card {
     font-size: 18px;
 
 }
+
