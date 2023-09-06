@@ -2,21 +2,20 @@ let shopItemsData = [];
 
 let generateCard = () => { 
     const shop = document.getElementById('shop');
-    return (shop.innerHTML = shopItemsData.map((x)=>{
-        let {product_id, product_name, price, descr, imgurl} = x; 
-        console.log(imgurl)
-        return `
-        <div id =product-id-${product_id} class="card"> 
-            <img class="card-img-top" src="${imgurl}" alt="Product Image" >
-            <div class="card-body">
-                <h5 class="card-title">${product_name}</h5>
-                <p class="card-text">${descr}</p>
-                <p class="price">${price}</p>
-                <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-        </div>
+    shop.innerHTML = '';
+    shopItemsData.forEach((x) => {    
+    let {product_id, product_name, price, descr, imgurl} = x; 
+        const card = document.createElement('div');
+        card.classList.add('product-card');
+        card.innerHTML = 
+        `<img src="${imgurl}" alt="Product Image">
+        <h5>${product_name}</h5>
+        <p>${descr}</p>
+        <p class="price">$${price}</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
         `;
-    }).join("")); 
+        shop.appendChild(card);
+    });
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json()) //creates json string from endpoint json
         .then(jsonData => { //at this point json is in an object array
         shopItemsData = jsonData; //copy jsonData array to shopItemsData array
-        console.log(shopItemsData);
         generateCard(shopItemsData); //call generateCard with shopItemsData
     })
     .catch(error => console.error('Error fetching products:', error)); //fetch always has catch 

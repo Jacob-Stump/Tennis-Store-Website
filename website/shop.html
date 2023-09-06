@@ -9,35 +9,28 @@
     <title>Shop</title>
     
 </head>
-<header>    
-
-    <div class = "nav-links">
-        <ul>
-            <li><a class = "nav-link" href="index.html">Home</a></li>
-            <li><a class = "nav-link" href="about.html">About</a></li>
-            <li><a class = "nav-link" href="shop.html">Shop</a></li>
-            <li><a class = "nav-link" href="services.html">Services</a></li>
-            <li><a class = "nav-link" href="contact.html">Contact</a></li>
-            
-            <button class = "cart-button"> <i class="ri-shopping-cart-line"></i> </button>
-   
-        </ul>
-        
-    </div>
-
-</header>
-<body>   
-    <div class="container"> <!--utilizing bootstraps responsive class to create dynamic card containers-->
-        <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4" id="shop">
-                
-            </div>
-            <!-- Add more cards with col-lg-4 and col-md-6 classes as needed -->
+<body>
+    <header>    
+        <div class = "nav-links">
+            <ul>
+                <li><a class = "nav-link" href="index.html">Home</a></li>
+                <li><a class = "nav-link" href="about.html">About</a></li>
+                <li><a class = "nav-link" href="shop.html">Shop</a></li>
+                <li><a class = "nav-link" href="services.html">Services</a></li>
+                <li><a class = "nav-link" href="contact.html">Contact</a></li>
+                <button class = "cart-button"> <i class="ri-shopping-cart-line"></i> </button>
+            </ul>
         </div>
-    </div>
+    </header>
+   <main>
+        <div class="product-container" id="shop"> 
+                <!--template card here-->
+        </div>
+    </main> 
+    <script src="shopPage.js"></script>
 </body>
 <script src="/bootstrap_js/jquery-3.7.1.js"></script>
 <script src="/bootstrap_js/bootstrap.min.js"></script>
-<script src="shopPage.js"></script>
+
 
 </html>

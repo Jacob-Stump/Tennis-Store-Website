@@ -6,22 +6,20 @@
   margin: 0;
 }
 
-
-
-  body {
+body {
     
     background-color: #E3E7E8;
     font-weight: 300;
-  }
+}
 
-  header {
+header {
     background: #222;
 
-   }
-
-  a:hover {
-    background-color: #3aaa5c;
   }
+
+a:hover {
+    background-color: #3aaa5c;
+}
 
 
 
@@ -115,44 +113,57 @@
 
 
 
-/*!                 Shop                 */
+/*                Shop                 */
 
 
-div.card {
-    box-shadow:0 4px 8px 0 rbga(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin:auto;
-    text-align: center;
-    font-family: arial;
-    height: auto;
-    border: solid 2px rgb(20, 20, 20);
-    
-    height: auto;
-    
-    
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Dynamic columns */
+  grid-gap: 80px; /* Increase spacing between cards */
+  max-width: 1200px;
+  padding: 20px;
+  margin: 0 auto;
 }
 
-.card-img-top {
-  height: 300px;
+/* Style for each product card */
+.product-card {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  border: solid 2px rgb(20, 20, 20);
+  padding: 20px;
+  max-width: 100%; /* Allow cards to shrink when the window is small */
+  display: flex;
+  flex-direction: column; /* Stack card content vertically */
+  justify-content: space-between; /* Push content to the top and bottom */
+  height: 100%; /* Ensure the card takes up the full height */
 }
 
+.product-card img {
+  max-width: 100%; /* Ensure the image doesn't exceed the card's width */
+  height: auto;
+  flex: 1;
+}
 
 .price {
-    color:black;
-    font-size: 20px;
+  color: black;
+  font-size: 20px;
+  font-weight: bold; /* Add bold font weight for prices */
 }
 
-
-.add-to-cart-btn { /*adding some attributes to the add to cart button*/
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color:#3aaa5c;
-    background-color:#3aaa5c;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-
+.add-to-cart-btn {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #3aaa5c;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  margin-top: 10px; /* Add some spacing between the button and other elements */
 }
 
+.add-to-cart-btn:hover {
+  background-color: #52f182;
+}
