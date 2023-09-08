@@ -12,10 +12,6 @@ body {
     font-weight: 300;
 }
 
-header {
-    background: #222;
-
-  }
 
 a:hover {
     background-color: #3aaa5c;
@@ -26,90 +22,72 @@ a:hover {
 
 /*!                NavBar                 */
 
-  header {
-    background: #222;
-
-  }
-  .ri-shopping-cart-line
-  {
-    color: white;
-  }
-
-  .cart-button
-  {
-    float: right;
-    position:right;
-    display: block;
-    width: 7%;
-    border: none;
-    background-color: #04AA6D;
-    padding: 14px 28px;
-    font-size: 16px;
-    cursor: pointer;
+.custom-navbar {
+  background-color: #222;
+    padding: 10px 20px; /* Add padding to the top and bottom */
     text-align: center;
-    
-    
-  }
-  .cart-button:hover{
-    background-color: #52f182;
-  }
-
-  .cart-quantity
-  {
-    float: right;
-    color: white;
-    padding: 1px 5px;
-    font-size: 20px;
-    border-radius: 8px;
-    background-color: rgb(219, 53, 53);
-    position: absolute;
-    top: 0px;
-    right: 145px;
-    
-
-  }
-  .cart{
     position: relative;
-  }
+    display: flex; /* Use flexbox to arrange contents horizontally */
+    justify-content: space-between; /* Create space between links and cart button */
+    align-items: center; /* Vertically center contents */
+}
 
-  a:hover {
-    background-color: #3aaa5c;
-  }
+.custom-navbar ul { /* for horizontal placement of links */
+  list-style-type: none; /* Remove bullet points */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Use flexbox to stack links horizontally */
+  justify-content: left; /* Center the links horizontally */
+}
+
+.custom-navbar .nav-link {
+  color: white;
+  text-decoration: none; /* Remove underlines from links */
+  padding: 10px 20px; /* Add padding to the left and right of links */
+  font-size: 18px;
+}
 
 
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    text-align: center;
-    
+/*                  Cart Button                  */
+
+
+.cart-button
+{
+  float: right;
+  position:relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* content being the cart icon and cart amount number*/
+  width: 100px; /* button width */
+  border: none;
+  background-color: #04AA6D;
+  padding: 14px 28px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.badge 
+{
+  position: relative;
+  color:rgb(219, 53, 53);
+  left: 10px;
+  top: -15px;
+  font-size:18px !important;
+}
+
+.cart-button i {
+  position: absolute;
+  font-size: 18px;
 }
   
-  li {
-    display: block;
-    float: left;
-    block-size: 45px;
-  }
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  .nav-link{
-    float: center;
-  }
-  
-  .nav-item:active{
-    color:#3aaa5c
-  }
 
+.cart-button:hover{
+  background-color: #52f182;
+}
 
+.cart{
+  position: relative;
+}
 
 
 
@@ -120,7 +98,7 @@ a:hover {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Dynamic columns */
   grid-gap: 80px; /* Increase spacing between cards */
-  max-width: 1200px;
+  max-width: 70%; /*size of product window*/
   padding: 20px;
   margin: 0 auto;
 }
