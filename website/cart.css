@@ -1,0 +1,49 @@
+.main {
+    background-color: aliceblue;
+}
+
+
+.cart-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust column width as needed */
+    grid-gap: 20px; /* Adjust the gap between items */;
+  
+  }
+  .cart-container h2 {
+    text-align: center;
+    
+  }
+  /* Style the item list */
+  .item-list {
+    list-style: none;
+    padding: 0;
+    background-color: #E3E7E8;
+  }
+  
+  /* Style each cart item */
+  .cart-item {
+    display: flex;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+  
+  /* Style the item image */
+  .cart-item img {
+    max-width: 100px;
+    margin-right: 10px;
+  }
+  
+  /* Style the item details */
+  .item-details {
+    flex: 1;
+  }
+  
+  /* Style the remove button */
+  .remove-button {
+    background-color: #ff5555;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
