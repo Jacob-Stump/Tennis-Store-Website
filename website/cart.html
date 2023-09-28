@@ -22,31 +22,18 @@
                 <div class = "cart">
                     <button class = "cart-button"> 
                         <i class="ri-shopping-cart-line"></i> 
-                        <span class="badge" id="cart-badge">0<!--number--></span>
+                        <span class="badge" id="cart-badge">0</span>
                     </button>
                 </div>
         </div>
     </header>
     <main>
-        <div class="cart-container">
-            <h2>Cart</h2>
-            <ul class="item-list">
-                <li class="cart-item">
-                    <img src="product1.jpg" alt="Product 1">
-                    <div class="item-details">
-                        <h3>Product Name 1</h3>
-                        <p>Description of Product 1.</p>
-                        <p class="price">$20.00</p>
-                        <button class="remove-button">Remove</button>
-                    </div>
-                </li>
-                <!-- Add more <li> elements for additional items -->
-            </ul>
-        </div>
+        <ul id="cart-list">
+            <!-- Cart items will be dynamically inserted here -->
+        </ul>
 
-
-
-        </div>
+        <button class = "clear-cart-btn" id="clear-btn">Clear Cart</button>
     </main> 
+    <script src="displayCart.js"></script>
 </body>
 </html>

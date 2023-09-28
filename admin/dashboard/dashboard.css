@@ -1,0 +1,41 @@
+#centralized-window {
+    position:flex;
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    height: 100vh; /* Adjust the container height as needed */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*TABLE*/
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid #ddd; /* Border style and color */
+}
+
+th, td {
+    padding: 8px; /* Add some padding for better spacing */
+    text-align: left; /* Align text within cells */
+}
+
+/* Optional: Style the table header differently */
+th {
+    background-color: #f2f2f2; /* Header background color */
+    font-weight: bold; /* Bold text in headers */
+}
+
+
