@@ -1,32 +1,95 @@
-let shopItemsData = [];
+let cart = {
+    items: [], // To store added items
+};
+let allProducts = []; //array holding all products from db
 
-let generateCard = () => { 
-    const shop = document.getElementById('shop');
+function saveCartToLocalStorage() {
+    localStorage.setItem('cart', JSON.stringify(cart.items));
+}
+
+function getCartFromLocalStorage() {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : { items: [] };
+}
+
+function generateCardAndAddListeners(allProducts) {
+    let shop = document.getElementById('shop');
     shop.innerHTML = '';
-    shopItemsData.forEach((x) => {    
-    let {product_id, product_name, price, descr, imgurl} = x; 
+
+    allProducts.forEach((x) => {
+        let { product_id, product_name, price, descr, imgurl, quantity } = x;
+        console.log(x.quantity);
         const card = document.createElement('div');
         card.classList.add('product-card');
-        card.innerHTML = 
-        `<img src="${imgurl}" alt="Product Image">
-        <h5>${product_name}</h5>
-        <p>${descr}</p>
-        <p class="price">$${price}</p>
-        <button class="add-to-cart-btn">Add to Cart</button>
+        card.setAttribute('data-product-id', product_id);
+
+        let innerHTML = `
+            <img src="${imgurl}" alt="Product Image">
+            <h5>${product_name}</h5>
+            <p>${descr}</p>
+            <p class="price">$${price}</p>
+            <p>Amount in Stock: <span class="stock-amount" data-product-id="${product_id}">${quantity}</span></p>
         `;
-        shop.appendChild(card);
+
+        if (x.quantity > 0) { //if the quantity fetched from the db is greater than 0..
+            innerHTML += '<button class="add-to-cart-btn">Add to Cart</button>'; //add an Add To Cart button
+        } else {
+            innerHTML += '<button class="disabled-button" disabled>Out of Stock</button>'; //add a disabled Add to Cart button
+        }
+
+        card.innerHTML = innerHTML;
+        shop.appendChild(card); // Add product to shop page
+
+        // Add event listener to the newly created button
+        if (x.quantity > 0) {
+            const addToCartButton = card.querySelector('.add-to-cart-btn');
+            addToCartButton.addEventListener('click', () => {
+                if(!addToCartButton.hasAttribute('disabled')) {
+                const product_id = card.getAttribute('data-product-id');
+                addToCart(product_id);
+                const stockAmountElement = document.querySelector(`.stock-amount[data-product-id="${product_id}"]`);
+                    x.quantity--; // Decrement the product quantity
+                    if(x.quantity >= 0) {
+                    stockAmountElement.textContent = x.quantity;
+                    }
+                }
+            });
+        }
     });
-};
+}
+    // Function to add an item to the cart
+function addToCart(productId) {
+    // Find the selected product based on the product_id
+    let selectedProduct = allProducts.find((product) => product.product_id == productId);
 
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('http://localhost:8080/getProducts') 
-        .then(response => response.json()) //creates json string from endpoint json
-        .then(jsonData => { //at this point json is in an object array
-        shopItemsData = jsonData; //copy jsonData array to shopItemsData array
-        generateCard(shopItemsData); //call generateCard with shopItemsData
-    })
-    .catch(error => console.error('Error fetching products:', error)); //fetch always has catch 
+    if (selectedProduct.quantity > 0) {
+        // Add the product to the cart
+        cart.items.push(selectedProduct);
+        saveCartToLocalStorage();
+        updateCartBadge();
+        console.log('Product added to cart:', selectedProduct);
+    } else {
+        alert('This product is out of stock.');
+    }
+    saveCartToLocalStorage();
+}
 
+// Function to update the cart badge
+function updateCartBadge() {
+    const cartBadge = document.getElementById('cart-badge');
+    cartBadge.textContent = cart.items.length;
+}
+
+document.addEventListener('DOMContentLoaded', () => { 
+    fetch('http://localhost:8080/getProducts')
+        .then((response) => response.json())
+        .then((jsonData) => {
+            allProducts = jsonData;
+            console.log(allProducts);
+            generateCardAndAddListeners(allProducts);
+            
+        })
+        .catch((error) => console.error('Error fetching products:', error));
 });
 
 

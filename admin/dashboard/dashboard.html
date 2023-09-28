@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="dashboard.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <div id="centralized-window">
+        <button id="orders-btn">Orders</button> 
+        <button id="products-btn">Products</button>
+        <button id="customers-btn">Customers</button>
+        <button id="new-product-redirect">Add Product</button>
+        <form id="search-form">
+            <input type="text" id="search-input">
+            <button type="button" id="search-btn">Search</button>
+        </form>
+        <table id="data-table">
+            <!-- Table headers will be added here -->
+            <thead>
+            </thead>
+            <tbody>
+                <!-- Table rows will be added dynamically -->
+            </tbody>
+        </table>
+    </div>
+    <script src="dashTables.js"></script>
+</body>
+
+</html>

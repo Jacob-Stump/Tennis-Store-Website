@@ -18,8 +18,6 @@ a:hover {
 }
 
 
-
-
 /*!                NavBar                 */
 
 .custom-navbar {
@@ -142,6 +140,20 @@ a:hover {
   margin-top: 10px; /* Add some spacing between the button and other elements */
 }
 
+.disabled-button {
+  background-color: red;
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  margin-top: 10px;
+  cursor: not-allowed;
+}
+
 .add-to-cart-btn:hover {
   background-color: #52f182;
 }
+

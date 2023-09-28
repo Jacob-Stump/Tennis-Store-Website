@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => { //on page load..
             console.log(data);
 
             if (data.success) {
-                window.location.href = 'http://localhost:5500/admin/interface.html';
+                window.location.href = 'http://localhost:5500/admin/dashboard/dashboard.html';
             }
             else {
                 console.error("login failed", data.error);
